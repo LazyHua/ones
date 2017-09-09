@@ -1,0 +1,18 @@
+  /*css代码：*/
+    .icons{
+      display:inline-block;*display:inline;*zoom:1;
+      font-style: normal;
+    }
+    @font-face{
+      font-family: my-iconfont;
+      src:url(./common/fonts/icomoon.eot);                                       /* IE9*/
+      src:url(./common/fonts/icomoon.eot?#iefix) format('embedded-opentype'),    /* IE6-IE8 */
+        url(./common/fonts/icomoon.woff) format('woff'),      /* chrome、firefox */
+        url(./common/fonts/icomoon.ttf) format('truetype'),   /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+        url(./common/fonts/icomoon.svg#iconfont) format('svg')  /* iOS 4.1- */
+      }
+    .icon-ui{
+      font-family: my-iconfont !important;
+      font-size: 22px;
+      color: #c40000;
+    }
