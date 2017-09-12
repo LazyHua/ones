@@ -3,7 +3,7 @@
     <div class="el-col row-bg" style="padding:10px 0;margin-bottom:10px;">
       <el-row>
         <el-button type="primary" @click="handleEdit()" class="f-left" style="margin-left:10px;"><i class="el-icon-plus" style="margin-right:5px;"></i>新增二维码</el-button>
-        <el-button type="primary">查询</el-button>
+        <el-button type="primary"><i class="icon-search"></i>查询</el-button>
       </el-row>
     </div>
     <el-table

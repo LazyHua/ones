@@ -6,9 +6,9 @@
         <el-col :span="4" ><div class="grid-content"><el-input v-model="price.price1" placeholder="唤醒身体价格" style="width:70%;"></el-input></div></el-col>
         <el-col :span="4" ><div class="grid-content"><el-input v-model="price.price2" placeholder="通行气血价格" style="width:70%;"></el-input></div></el-col>
         <el-col :span="4" ><div class="grid-content"><el-input v-model="price.price3" placeholder="舒张筋骨价格" style="width:70%;"></el-input></div></el-col>
-        <el-col :span="2" class="f-right">
-          <el-button type="primary" @click="handleEdit()">新增</el-button>
-        <el-button type="primary">查询</el-button>
+        <el-col :span="3" class="f-right">
+          <el-button type="primary" @click="handleEdit()"><i class="icon-plus" style="margin-right:5px;"></i>新增</el-button>
+        <el-button type="primary"><i class="icon-search"></i>查询</el-button>
         </el-col>
       </el-row>
       <el-row>

@@ -1,7 +1,7 @@
 {
 	"menu":[{
 			"name":"网点设备",
-			"icon":"el-icon-message",
+			"icon":"icon-map",
 			"smenu":[{
 				"name":"网点管理",
 				"url":"/area"
@@ -23,7 +23,7 @@
 			}]
 		},{
 			"name":"活动管理",
-			"icon":"el-icon-menu",
+			"icon":"icon-price-tags",
 			"smenu":[{
 				"name":"代金券",
 				"url":"/voucher"
@@ -33,7 +33,7 @@
 			}]
 		},{
 			"name":"财务管理",
-			"icon":"el-icon-setting",
+			"icon":"icon-stats-bars",
 			"smenu":[{
 				"name":"订单流水",
 				"url":"/order"
@@ -61,13 +61,13 @@
 			}]
 		},{
 			"name":"数据分析",
-			"icon":"el-icon-setting",
+			"icon":"icon-pie-chart",
 			"smenu":[{
 				"name":"全国城市交易量Top20",
-				"url":""
+				"url":"/Top20Map"
 			},{
 				"name":"全国网点交易量Top20",
-				"url":""
+				"url":"/Analysis"
 			},{
 				"name":"全国城市日流水Top20",
 				"url":""
@@ -89,27 +89,27 @@
 			}]
 		},{
 			"name":"表单申请",
-			"icon":"el-icon-setting",
+			"icon":"icon-database",
 			"smenu":[{
 				"name":"网点申请",
 				"url":"/netapply"
 			}]
 		},{
 			"name":"流程处理",
-			"icon":"el-icon-setting",
+			"icon":"icon-address-book",
 			"smenu":[{
 				"name":"待办事项",
-				"url":""
+				"url":"/waitTask"
 			},{
 				"name":"已办事项",
-				"url":""
+				"url":"/alreadyTask"
 			},{
 				"name":"已完结事项",
 				"url":"/finishItems"
 			}]
 		},{
 			"name":"系统设置",
-			"icon":"el-icon-setting",
+			"icon":"icon-cog",
 			"smenu":[{
 				"name":"菜单导航",
 				"url":""

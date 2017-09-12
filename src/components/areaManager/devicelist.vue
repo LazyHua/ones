@@ -7,7 +7,7 @@
         <el-col :span="4" ><div class="grid-content"><el-input v-model="devicelist.area_name" placeholder="网点ID" style="width:70%;"></el-input></div></el-col>
         <el-col :span="4" ><div class="grid-content"><el-input v-model="devicelist.area_name" placeholder="网点名称" style="width:70%;"></el-input></div></el-col>
         <el-col :span="1" class="f-right">
-          <el-button type="primary">查询</el-button>
+          <el-button type="primary"><i class="icon-search"></i>查询</el-button>
         </el-col>
       </el-row>
     </div>

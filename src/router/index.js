@@ -21,7 +21,12 @@ import monthorder from '@/components/accountManager/monthorder'
 import yearorder from '@/components/accountManager/yearorder'
 import exporder from '@/components/accountManager/exporder'
 import refundorder from '@/components/accountManager/refundorder'
+import monthcheck from '@/components/accountManager/monthcheck'
+import Top20Map from '@/components/DataAnalysis/Top20Map'
+import Analysis from '@/components/DataAnalysis/Analysis'
 import netapply from '@/components/formApply/netapply'
+import waitTask from '@/components/taskProcess/waitTask'
+import alreadyTask from '@/components/taskProcess/alreadyTask'
 import finishItems from '@/components/taskProcess/finishItems'
 Vue.use(Router)
 
@@ -104,9 +109,29 @@ export default new Router({
           name: 'refundorder',
           component: refundorder
         },{
+          path: '/monthcheck',
+          name: 'monthcheck',
+          component: monthcheck
+        },{
+          path: '/waitTask',
+          name: 'waitTask',
+          component: waitTask
+        },{
+          path: '/alreadyTask',
+          name: 'alreadyTask',
+          component: alreadyTask
+        },{
           path: '/finishItems',
           name: 'finishItems',
           component: finishItems
+        },{
+          path: '/Top20Map',
+          name: 'Top20Map',
+          component: Top20Map
+        },{
+          path: '/Analysis',
+          name: 'Analysis',
+          component: Analysis
         }
         
   	  ]

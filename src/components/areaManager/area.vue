@@ -4,7 +4,7 @@
       <el-row>
         <el-col :span="3" ><div>网点ID：<el-input v-model="area.deviceId" placeholder="网点ID" style="width:70%;"></el-input></div></el-col>
         <el-col :span="4" ><div>网点名称：<el-input v-model="area.area_name" placeholder="网点名称" style="width:70%;"></el-input></div></el-col>
-        <el-col :span="5" ><div class="grid-content">合伙人名称：<el-input v-model="area.area_name" placeholder="合伙人名称" style="width:70%;"></el-input></div></el-col>
+        <el-col :span="4" ><div class="grid-content">合伙人名称：<el-input v-model="area.area_name" placeholder="合伙人名称" style="width:70%;"></el-input></div></el-col>
         <el-col :span="5" ><div class="grid-content">周边网点状态：
           <el-select v-model="area.device_name" placeholder="请选择">
             <el-option
@@ -27,15 +27,15 @@
           </el-select>
         <!-- <el-input v-model="area.area_name" placeholder="网点启用状态" style="width:70%;"></el-input> -->
         </div></el-col>
-        <el-col :span="2" class="f-right">
-          <el-button type="primary">新增</el-button>
-          <el-button type="primary">查询</el-button>
+        <el-col :span="3" class="f-right">
+          <el-button type="primary" @click="handleAdd()"><i class="icon-plus" style="margin-right:5px;"></i>新增</el-button>
+          <el-button type="primary"><i class="icon-search"></i>查询</el-button>
         </el-col>
       </el-row>
     </div>
     <div  class="flex-box">
-    <aside style="border: 1px solid #dfe6ec;border-right:0;">
-      <div class="tree-header">省份城市</div>
+    <aside style="border: 1px solid #dfe6ec;border-right:0;" :class="collapsed?'menu-collapsed':'menu-expanded'">
+      <div class="tree-header">省份城市<span @click="collapse($event)" v-model="collapsed">>></span></div>
       <el-tree
         :data="regions"
         :props="props"
@@ -112,6 +112,13 @@
         </el-table-column>
     </el-table>
     </div>
+<el-dialog title="网点信息" :visible.sync="areaDialog">
+  
+  <div slot="footer" class="dialog-footer">
+    <el-button @click="areaDialog = false">取 消</el-button>
+    <el-button type="primary" @click="areaDialog = false">确 定</el-button>
+  </div>
+</el-dialog>
 
     <div class="el-col row-bg" style="padding:10px 0;margin-top:10px;">
         <el-row>
@@ -125,6 +132,9 @@ import pagination from '@/components/ccomponent/pagination'
   export default {
     data() {
       return {
+        collapsed:false,
+        areaDialog:false,
+        formLabelWidth:'80px',
         regions: [{
           'name': 'region1'
         }, {
@@ -168,6 +178,15 @@ import pagination from '@/components/ccomponent/pagination'
       },
       handleNodeClick(data) {
         console.log(data);
+      },
+      collapse:function(event){
+        console.log(event);
+        //event.currentTarget.parentElement.
+        //alert(this.collapsed);
+        this.collapsed=!this.collapsed;
+      },
+      handleAdd:function(){
+        this.areaDialog = true;
       },
       loadNode(node, resolve) {
         if (node.level === 0) {

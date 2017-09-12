@@ -9,14 +9,14 @@
 					<i class="fa fa-align-justify"></i>
 				</div>
 			</el-col> -->
-			<el-col :span="8">
-				<div class="tools" @click.prevent="collapse">
+			<!-- <el-col :span="8">
+				<div class="tools" @click="collapse()" v-model="collapsed">
 					<i class="el-icon-menu"></i>
 				</div>
-			</el-col>
+			</el-col> -->
 			<el-col :span="8" class="userinfo">
 				<el-dropdown trigger="hover">
-					<span class="el-dropdown-link userinfo-inner">当前用户：<img :src="this.sysUserAvatar" /> {{sysUserName}}</span>
+					<span class="el-dropdown-link userinfo-inner"><span class="icons icon-ui icon-user"></span><img :src="this.sysUserAvatar" /> {{sysUserName}}</span>
 					<el-dropdown-menu slot="dropdown">
 						<el-dropdown-item @click.native="modify">修改密码</el-dropdown-item>
 						<el-dropdown-item divided @click.native="logout">退出登录</el-dropdown-item>
@@ -25,22 +25,25 @@
 			</el-col>
 		</el-col>
 		<el-col :span="24" class="main">
-			<aside >
-				<el-menu default-active="1-4-1" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" :collapse="isCollapse" :router="true" :unique-opened="menuOnlyOne=true" >
+			<aside :class="collapsed?'menu-collapsed':'menu-expanded'">
+				<el-menu default-active="1-4-1" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" :collapse="collapsed" :router="true" :unique-opened="menuOnlyOne=true" >
 				  <el-submenu :index="indexs+''" v-for="(item,indexs) in menus">
 				    <template slot="title">
-				      <i :class="item.icon"></i>
+				      <i :class="item.icon" style="font-size:18px;"></i>
 				      <span slot="title">{{item.name}}</span>
 				    </template>
 				    <el-menu-item :index="obj.url+''" v-for="(obj,index) in item.smenu">{{obj.name}}</el-menu-item>
 				  </el-submenu>
 				</el-menu>
+				<div class="tools" @click="collapse()" v-model="collapsed" >
+					<i class="el-icon-menu"></i>
+				</div>
 			</aside>
 			<section class="content-container">
 				<div class="grid-content bg-purple-light">
-					<el-col :span="24" class="breadcrumb-container">
-						<strong class="title">{{$route.name}}</strong>
-						<el-breadcrumb separator="/" class="breadcrumb-inner">
+					<el-col :span="24" class="breadcrumb-container" >
+						<strong class="title" style="width:30px;"><span class="icons icon-ui icon-home" style="color:#aaa;"></span></strong>
+						<el-breadcrumb separator="/" class="breadcrumb-inner"style="float:left;line-height:2.2;">
 							<el-breadcrumb-item v-for="item in $route.matched" :key="item.path">
 								{{ item.name }}
 							</el-breadcrumb-item>
@@ -101,14 +104,13 @@
 		    };
 			return {
 				sysName:'VUEADMIN',
-				collapsed:false,
 				sysUserName: '',
 				sysUserAvatar: '',
 				dialogTableVisible: false,
         		dialogFormVisible: false,
         		dialogModifyVisible:false,
         		loading:false,
-        		isCollapse:false,
+        		collapsed:false,
 				form: {
 					password: '',
 					checkpassword: '',
@@ -176,7 +178,6 @@
 			},
 			//折叠导航栏
 			collapse:function(){
-				alert(this.collapsed);
 				this.collapsed=!this.collapsed;
 			},
 			showMenu(i,status){
@@ -195,6 +196,10 @@
 </script>
 
 <style scoped >
+.el-menu-vertical-demo:not(.el-menu--collapse) {
+    width: 200px;
+    min-height: 400px;
+  }
 	/*@import '~scss_vars';*/
 .tools{
 				padding: 0px 23px;

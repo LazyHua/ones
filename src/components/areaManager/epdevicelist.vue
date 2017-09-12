@@ -5,8 +5,8 @@
         <el-col :span="4" ><div><el-input v-model="epdevicelist.deviceId" placeholder="设备ID" style="width:70%;"></el-input></div></el-col>
         <el-col :span="4" ><div class="grid-content"><el-input v-model="epdevicelist.device_name" placeholder="设备名称" style="width:70%;"></el-input></div></el-col>
         <el-col :span="4" ><div class="grid-content"><el-input v-model="epdevicelist.area_name" placeholder="网点名称" style="width:70%;"></el-input></div></el-col>
-        <el-col :span="1" class="f-right">
-        <el-button type="primary">查询</el-button>
+        <el-col :span="2" class="f-right">
+        <el-button type="primary"><i class="icon-search"></i>查询</el-button>
         </el-col>
       </el-row>
     </div>

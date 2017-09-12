@@ -5,6 +5,8 @@ import App from './App'
 import router from './router'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-default/index.css'
+import './common/fonts/style.css'
+import echarts from 'echarts'
 import axios from 'axios'
 Vue.prototype.$http = axios
 Vue.config.productionTip = false//根据字面意思的提示
