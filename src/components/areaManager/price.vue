@@ -35,6 +35,14 @@
         style="text-align:center;"
         >
       </el-table-column>
+      <el-table-column style=""
+        prop="price_name"
+        label="价格名称"
+        width="150"
+        sortable
+        style="text-align:center;"
+        >
+      </el-table-column>
       <el-table-column label="唤醒身体">
         <el-table-column style=""
           prop="price1"
@@ -91,12 +99,12 @@
     <el-dialog title="价格信息" :visible.sync="priceDialog" size="tiny">
       <el-form :model="priceAdd" :rules="rulePrice" ref="priceAdd">
        <!--  <div class="label-tip" style="width:70px;float:left;line-height:37px;">价格描述</div> -->
-        <el-form-item label="价格描述" prop="desc" :label-width="formLabelWidth">
-          <el-input v-model="price.desc" style="width:85%;"></el-input>
+        <el-form-item label="价格名称" prop="price_name" :label-width="formLabelWidth">
+          <el-input v-model="price.price_name" style="width:85%;"></el-input>
         </el-form-item>
         <div class="label-tip" >唤醒身体</div>
         <el-form-item label="价格：" prop="price1" class="lable-item" :label-width="formLabelWidth">
-          <el-input v-model="price.price2" class="lable-item-w"></el-input>
+          <el-input v-model="price.price1" class="lable-item-w"></el-input>
         </el-form-item>
         <el-form-item label="时长：" prop="time1" class="lable-item":label-width="formLabelWidth">  
           <el-input v-model="price.time1" class="lable-item-w"></el-input>
@@ -131,7 +139,11 @@
   }
 </style>
 <script>
-import pagination from '@/components/ccomponent/pagination'
+  import pagination from '@/components/ccomponent/pagination'
+  import { get,post } from '@/common/js/common.js'
+  // import { kk } from '@/common/js/common.js'
+  // alert(kk);
+
   export default {
     data() {
       return {
@@ -139,7 +151,7 @@ import pagination from '@/components/ccomponent/pagination'
         priceDialog:false,
         price: [{
           priceid: '1',
-          desc: '王小虎',
+          price_name: '王小虎',
           price1: '上海',
           time1: '普陀区',
           price2: '上海',
@@ -148,7 +160,7 @@ import pagination from '@/components/ccomponent/pagination'
           time3: '普陀区',
         },{
           priceid: '2',
-          desc: '王小虎',
+          price_name: '王小虎',
           price1: '上海',
           time1: '普陀区',
           price2: '上海',
@@ -157,7 +169,7 @@ import pagination from '@/components/ccomponent/pagination'
           time3: '普陀区',
         }],
         priceAdd: {
-          desc: '',
+          price_name: '',
           price1: '',
           time1: '',
           price2: '',
@@ -166,7 +178,7 @@ import pagination from '@/components/ccomponent/pagination'
           time3: '',
         },
         rulePrice:{
-          desc: [
+          price_name: [
             { required: true, message: '请输入价格描述', trigger: 'blur' }
           ],
           price1: [
@@ -194,8 +206,11 @@ import pagination from '@/components/ccomponent/pagination'
         pagination
     },
     created () {
-      // var data = { page:2,tab:'job',limit:20,mdrender:false};
-      // this.$http.get("https://cnodejs.org/api/v1/topics",data).then(response => {
+      //alert(kk);
+      var data = { page:2,tab:'job',limit:20,mdrender:false};
+      var url = "/web/v1/lmb/price/getPriceGroups";
+      get(url, handleEdit, handleEdit);
+      // this.$http.get("/web/v1/lmb/price/getPriceGroups").then(response => {
       //       // success callback
             
       //       console.log(response);

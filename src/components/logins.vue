@@ -73,7 +73,8 @@
             this.logining = true;
             //NProgress.start();
             var loginParams = { username: this.form.username, password: this.form.password ,city_name:this.form.city_name,vcode:this.form.vcode};
-              this.$http.post("/web/v1/lmb/login",this.$refs.form,{
+              
+              this.$http.post("/web/v1/lmb/login",loginParams,{
                 headers:{
                   'Content-Type': 'application/x-www-form-urlencoded'
                 }
@@ -87,7 +88,8 @@
               }, response => {
                   // error callback
               })
-              // this.$http.post("/web/v1/lmb/login",loginParams,{
+
+              // this.$http.post("/web/v1/lmb/login",this.$refs.form,{
               //   headers:{
               //     'Content-Type': 'application/x-www-form-urlencoded'
               //   }
