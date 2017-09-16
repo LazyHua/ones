@@ -199,6 +199,7 @@
 .el-menu-vertical-demo:not(.el-menu--collapse) {
     width: 230px;
     min-height: 400px;
+    height: 100%;
   }
 	/*@import '~scss_vars';*/
 .tools{
@@ -256,7 +257,7 @@
 	aside {
 		flex:0 0 230px;
 		width: 230px;
-		
+		background-color: #eef1f6;
 	}
 	.el-menu{
 		height: 100%;
